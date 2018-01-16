@@ -11,6 +11,7 @@ brew tap caskroom/fonts
 apps=(
   1password
   alfred
+  bartender
   caprine
   cleanmymac
   dash
