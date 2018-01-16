@@ -1,0 +1,69 @@
+[user]
+  name = Kevin Rambaud
+  email = kevin.rambaud@gmail.com
+
+[github]
+  user = kevinrambaud
+
+[core]
+  excludesfile = ~/.gitignore_global
+  editor = nano
+
+[alias]
+  # List branch(es)
+  b = branch 
+
+  # Clone a repository
+  c = clone
+
+  # Commit
+  ci = commit
+
+  # Commit with message
+  cim = commit -m
+
+  # Switch to a branch, creating it if necessary
+  co = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+
+  # List contributors with number of commits
+  contributors = shortlog --summary --numbered
+
+  # Clone a repository including all submodules
+  cr = clone --recursive
+
+  # View abbreviated SHA, description, and history graph of the latest 20 commits
+  l = log --pretty=oneline -n 20 --graph --abbrev-commit
+
+  # Pull in remote changes for the current repository and all its submodules
+  p = !"git pull; git submodule foreach git pull origin master"
+
+  # View the current working tree status using the short format
+  s = status
+
+[color]
+
+	# Use colors in Git commands that are capable of colored output when
+	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
+	ui = auto
+
+[color "branch"]
+
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+
+	meta = yellow bold
+	frag = magenta bold # line info
+	old = red # deletions
+	new = green # additions
+
+[color "status"]
+
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[credential]
+  helper = osxkeychain

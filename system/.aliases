@@ -1,0 +1,38 @@
+alias reload="source ~/.zsh"
+
+# God mode
+alias _="sudo"
+
+# Easier navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+# List all files and directories
+alias l="ls -la"
+alias ll="ls -ls"
+alias ld="ls -ld */"
+
+# Git
+alias g="git"
+
+# Remove
+alias rr="rm -rf"
+
+# npm
+alias ni="npm install"
+alias nis="npm install --save"
+alias nisd="npm install --save-dev"
+alias nig="npm install -g"
+alias nu="npm uninstall"
+alias nup="npm update"
+alias nri="rm -rf node_modules && npm install"
+alias ncd="npm-check -su"
+
+alias chmox='chmod -x'
+
+alias cask='brew cask'
+
+alias where=which
+
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
