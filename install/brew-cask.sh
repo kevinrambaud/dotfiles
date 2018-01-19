@@ -37,6 +37,8 @@ apps=(
   skype
   slack
   spectacle
+  spotify
+  spotify-notifications
   transmit
   virtualbox
   virtualbox-extension-pack
