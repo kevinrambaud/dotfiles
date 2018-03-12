@@ -17,7 +17,6 @@ apps=(
   dash
   datagrip
   discord
-  dofus
   fantastical
   flux
   focus
