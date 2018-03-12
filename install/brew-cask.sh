@@ -38,6 +38,7 @@ apps=(
   spectacle
   spotify
   spotify-notifications
+  sublime-text-dev
   transmit
   virtualbox
   virtualbox-extension-pack
