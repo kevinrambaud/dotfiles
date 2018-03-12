@@ -42,6 +42,7 @@ apps=(
   transmit
   virtualbox
   virtualbox-extension-pack
+  visual-studio-code
   vlc
   webstorm
 )
