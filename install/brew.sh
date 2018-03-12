@@ -55,6 +55,7 @@ apps=(
   perl
   php72
   pkg-config
+  postgres
   pyenv
   python
   python3
