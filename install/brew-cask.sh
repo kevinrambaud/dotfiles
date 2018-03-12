@@ -24,7 +24,6 @@ apps=(
   istat-menus
   iterm2
   java8
-  mysqlworkbench
   postman
   qlcolorcode
   qlimagesize
