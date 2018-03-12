@@ -23,6 +23,7 @@ apps=(
   focus
   google-chrome
   istat-menus
+  iterm2
   java8
   mysqlworkbench
   postman
