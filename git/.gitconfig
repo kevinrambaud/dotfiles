@@ -7,11 +7,11 @@
 
 [core]
   excludesfile = ~/.gitignore_global
-  editor = nano
+  editor = vim
 
 [alias]
   # List branch(es)
-  b = branch 
+  b = branch
 
   # Clone a repository
   c = clone
