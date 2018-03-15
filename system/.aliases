@@ -1,4 +1,4 @@
-alias reload="source ~/.zsh"
+alias reload="source ~/.zshrc"
 
 # God mode
 alias _="sudo"
