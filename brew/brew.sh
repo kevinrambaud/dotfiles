@@ -11,7 +11,6 @@ brew update
 brew upgrade
 
 # Add tap
-brew tap homebrew/dupes
 brew tap homebrew/versions
 brew tap homebrew/homebrew-php
 
