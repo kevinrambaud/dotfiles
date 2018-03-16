@@ -1,3 +1,5 @@
+# zsh
+alias zshconfig="nano ~/.zshrc"
 alias reload="source ~/.zshrc"
 
 # God mode
@@ -15,6 +17,7 @@ alias ld="ls -ld */"
 
 # Git
 alias g="git"
+alias gitconfig="nano ~/.gitconfig"
 
 # Remove
 alias rr="rm -rf"
