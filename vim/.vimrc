@@ -32,13 +32,11 @@ let g:NERDTreeWinSize = 45
 """""""""
 
 " Default color scheme.
-colorscheme atom-dark-256
-" colorscheme one
-" set background=dark " for the dark version
-" set background=light " for the light version
+colorscheme one
+set background=dark " for the dark version
 
 set t_Co=256
-set guifont=Menlo\ for\ Powerline:h15
+set guifont=Menlo\ for\ Powerline:h16
 set linespace=5
 
 " Enable line number.
