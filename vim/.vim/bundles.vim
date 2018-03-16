@@ -7,7 +7,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 
 " One dark theme
-Plugin 'akr/vim-one'
+Plugin 'rakr/vim-one'
 
 " Others
 Plugin 'jiangmiao/auto-pairs' " Autoclose paren, quote, double quote
