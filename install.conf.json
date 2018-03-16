@@ -21,5 +21,10 @@
       "~/.vim": "vim/.vim",
       "~/.zshrc": "zsh/.zshrc"
     }
+  },
+  {
+    "shell": [
+      ["git submodule update --init --recursive", "Installing submodules"]
+    ]
   }
 ]
