@@ -1,0 +1,25 @@
+[
+  {
+    "defaults": {
+      "link": {
+        "relink": true
+      }
+    }
+  },
+  {
+    "clean": "~"
+  },
+  {
+    "link": {
+      "~/.dotfiles": "",
+      "~/.gitconfig": "git/.gitconfig",
+      "~/.gitignore_global": "git/.gitignore_global",
+      "~/.aliases": "system/.aliases",
+      "~/.functions": "system/.functions",
+      "~/.vimrc": "vim/.vimrc",
+      "~/.gvimrc": "vim/.gvimrc",
+      "~/.vim": "vim/.vim",
+      "~/.zshrc": "zsh/.zshrc"
+    }
+  }
+]
