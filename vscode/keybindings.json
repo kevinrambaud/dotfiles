@@ -1,0 +1,26 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  {
+    "key": "shift+cmd+g",
+    "command": "workbench.view.scm"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "-workbench.view.scm"
+  },
+  {
+    "key": "shift+alt+[Period]",
+    "command": "-gitlens.showCommitSearch",
+    "when": "gitlens:enabled"
+  },
+  {
+    "key": "alt+enter",
+    "command": "editor.action.showContextMenu",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+f10",
+    "command": "-editor.action.showContextMenu",
+    "when": "editorTextFocus"
+  }
+]
