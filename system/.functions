@@ -5,9 +5,14 @@ function mkcd() {
   mkdir -p "$@" && cd "$@"
 }
 
-# Find shorthand
+# Search files or directories
 function f() {
-  find . -name "$1" 2>1 | grep -v 'Permission denied'
+  find . -iname "*$1*" ${@:2}
+}
+
+# Search in files
+function r() {
+  grep "$1" ${@:2} -R .
 }
 
 # File size of a file or a directory
