@@ -41,6 +41,7 @@ apps=(
   libxml2
   libyaml
   lua
+  macvim
   maven
   mcrypt
   mercurial
