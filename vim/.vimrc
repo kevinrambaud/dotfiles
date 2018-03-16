@@ -1,7 +1,7 @@
 set nocompatible              " be iMproved, required
 
 " Vim plugins
-so ~/.vim/plugins.vim
+so ~/.vim/bundles.vim
 
 " Enable syntax.
 syntax enable
