@@ -30,7 +30,10 @@ alias nig="npm install -g"
 alias nu="npm uninstall"
 alias nup="npm update"
 alias nri="rm -rf node_modules && npm install"
-alias ncd="npm-check -su"
+alias nstart="npm start"
+alias ntest="npm test"
+alias ncov="npm run coverage"
+alias nlint="npm run lint"
 
 alias chmox='chmod -x'
 
