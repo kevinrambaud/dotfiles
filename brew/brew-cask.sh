@@ -36,8 +36,6 @@ apps=(
   skype
   slack
   spectacle
-  spotify
-  spotify-notifications
   sublime-text-dev
   transmit
   virtualbox
