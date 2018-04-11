@@ -31,7 +31,6 @@ apps=(
   qlstephen
   quicklook-csv
   quicklook-json
-  sequel-pro
   skype
   slack
   spectacle
