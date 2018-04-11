@@ -12,7 +12,6 @@ apps=(
   1password
   alfred
   bartender
-  caprine
   cleanmymac
   dash
   datagrip
