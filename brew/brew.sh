@@ -64,6 +64,7 @@ apps=(
   ruby
   ruby-build
   sqlite
+  terraform
   tree
   unixodbc
   vim
