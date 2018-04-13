@@ -43,3 +43,11 @@ apps=(
 )
 
 brew cask install "${apps[@]}"
+
+fonts=(
+  font-fira-code
+  font-fira-mono-for-powerline
+  font-menlo-for-powerline
+)
+
+brew cask install "${fonts[@]}"
