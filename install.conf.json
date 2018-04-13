@@ -13,15 +13,15 @@
   {
     "link": {
       "~/.dotfiles": "",
-      "~/.gitconfig": "git/.gitconfig",
-      "~/.gitconfig_work": "git/.gitconfig_work",
-      "~/.gitignore_global": "git/.gitignore_global",
-      "~/.aliases": "system/.aliases",
-      "~/.functions": "system/.functions",
-      "~/.vimrc": "vim/.vimrc",
-      "~/.gvimrc": "vim/.gvimrc",
-      "~/.vim": "vim/.vim",
-      "~/.zshrc": "zsh/.zshrc"
+      "~/.gitconfig": "git/gitconfig",
+      "~/.gitconfig_work": "git/gitconfig_work",
+      "~/.gitignore_global": "git/gitignore_global",
+      "~/.aliases": "system/aliases",
+      "~/.functions": "system/functions",
+      "~/.vimrc": "vim/vimrc",
+      "~/.gvimrc": "vim/gvimrc",
+      "~/.vim": "vim/vim",
+      "~/.zshrc": "zsh/zshrc"
     }
   }
 ]
