@@ -68,6 +68,7 @@ apps=(
   tree
   unixodbc
   vim
+  watchman
   wget
   yarn
   zsh
