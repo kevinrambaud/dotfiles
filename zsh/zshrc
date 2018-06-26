@@ -20,7 +20,14 @@ export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
 # Path
-export PATH="/usr/local/sbin:$PATH:$PATH:$GOPATH/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH:/usr/local/opt/findutils/libexec/gnubin:$PATH"
+export PATH="$PATH:/usr/local/sbin:$GOPATH/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:/Users/kevinrambaud/Library/Python/2.7/bin"
 
 # Go path
 export GOPATH=$HOME/go
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/kevinrambaud/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/kevinrambaud/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/kevinrambaud/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/kevinrambaud/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh

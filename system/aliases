@@ -35,6 +35,12 @@ alias ntest="npm test"
 alias ncov="npm run coverage"
 alias nlint="npm run lint"
 
+# Go
+alias gobin="cd $GOPATH/bin/"
+alias gopkg="cd $GOPATH/pkg/"
+alias gosrc="cd $GOPATH/src/"
+alias gome="cd $GOPATH/src/github.com/kevinrambaud/"
+
 alias chmox='chmod -x'
 
 alias cask='brew cask'
