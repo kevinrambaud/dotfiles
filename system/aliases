@@ -41,6 +41,10 @@ alias gopkg="cd $GOPATH/pkg/"
 alias gosrc="cd $GOPATH/src/"
 alias gome="cd $GOPATH/src/github.com/kevinrambaud/"
 
+# AWS
+alias awscred="nano $HOME/.aws/credentials"
+alias awsconf="nano $HOME/.aws/config"
+
 alias chmox='chmod -x'
 
 alias cask='brew cask'
