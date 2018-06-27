@@ -1,5 +1,5 @@
 # zsh
-alias zshconfig="nano ~/.zshrc"
+alias zshconfig="$EDITOR ~/.zshrc"
 alias reload="source ~/.zshrc"
 
 # God mode
@@ -17,7 +17,7 @@ alias ld="ls -ld */"
 
 # Git
 alias g="git"
-alias gitconfig="nano ~/.gitconfig"
+alias gitconfig="$EDITOR ~/.gitconfig"
 
 # Remove
 alias rr="rm -rf"
@@ -42,8 +42,8 @@ alias gosrc="cd $GOPATH/src/"
 alias gome="cd $GOPATH/src/github.com/kevinrambaud/"
 
 # AWS
-alias awscred="nano $HOME/.aws/credentials"
-alias awsconf="nano $HOME/.aws/config"
+alias awscred="$EDITOR $HOME/.aws/credentials"
+alias awsconf="$EDITOR $HOME/.aws/config"
 
 alias chmox='chmod -x'
 
