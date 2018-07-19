@@ -1,7 +1,3 @@
-if ! is-macos -o ! is-executable brew; then
-  echo "Skipped: Homebrew-Cask"
-fi
-
 # Update caskroom
 brew tap caskroom/versions
 brew tap caskroom/cask
