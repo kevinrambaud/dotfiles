@@ -16,11 +16,8 @@ apps=(
   dash
   datagrip
   discord
-  fantastical
-  flux
   focus
   google-chrome
-  istat-menus
   iterm2
   java8
   postman
@@ -31,7 +28,6 @@ apps=(
   qlstephen
   quicklook-csv
   quicklook-json
-  skype
   slack
   spectacle
   sublime-text-dev
