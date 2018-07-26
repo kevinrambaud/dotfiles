@@ -26,7 +26,7 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$PATH:/usr/local/sbin:$GOPATH/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:/Users/kevinrambaud/Library/Python/2.7/bin"
 
 # Go path
-export GOPATH=$HOME/go
+export GOPATH=$HOME/Go
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
