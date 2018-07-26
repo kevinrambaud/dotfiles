@@ -2,7 +2,7 @@
 	name = Kevin Rambaud
 	email = kevin.rambaud@gmail.com
 
-[includeIf "gitdir:~/dev/cimpress/"]
+[includeIf "gitdir:~/Dev/cimpress/"]
   path = ~/.gitconfig_work
 
 [github]
