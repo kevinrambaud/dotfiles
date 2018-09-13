@@ -24,6 +24,7 @@ apps=(
   qlstephen
   quicklook-csv
   quicklook-json
+  sketch
   slack
   spectacle
   sublime-text-dev
@@ -32,6 +33,7 @@ apps=(
   virtualbox-extension-pack
   visual-studio-code
   vlc
+  whatsapp
 )
 
 brew cask install "${apps[@]}"

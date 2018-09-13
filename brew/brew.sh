@@ -44,6 +44,7 @@ apps=(
   mongodb
   moreutils
   mysql
+  neovim
   nvm
   openssl
   pcre
