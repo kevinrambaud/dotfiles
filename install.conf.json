@@ -20,6 +20,7 @@
       "~/.functions": "system/functions",
       "~/.vimrc": "vim/vimrc",
       "~/.gvimrc": "vim/gvimrc",
+      "~/.tmux.conf": "tmux.conf",
       "~/.vim": "vim/vim",
       "~/.zshrc": "zsh/zshrc"
     }

@@ -1,119 +1,163 @@
-set nocompatible              " be iMproved, required
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
-" Vim plugins
-so ~/.vim/bundles.vim
+" Make sure you use single quotes
 
-" Enable syntax.
-syntax enable
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'cocopon/iceberg.vim'
+Plug 'pangloss/vim-javascript'
+"Plug 'mxw/vim-jsx'
+Plug 'jiangmiao/auto-pairs'
+Plug 'itchyny/lightline.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'w0rp/ale'
+Plug 'elzr/vim-json'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-sensible'
+Plug 'joshdick/onedark.vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'mattn/emmet-vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'maximbaz/lightline-ale'
+Plug 'itchyny/vim-gitbranch'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
-" Make backspace behave like every other editor.
-set backspace=indent,eol,start
+" Initialize plugin system
+call plug#end()
 
-" Use 2 spaces instead of default 4 spaces tab
-set expandtab tabstop=2 shiftwidth=2
+set nocompatible
+filetype off
+filetype plugin indent on
 
-" Disable bell in Vim and MacVim
-set visualbell t_vb=
+set ttyfast
 
-" The default leader is backslash but comma is much better.
-let mapleader=','
+if !has('nvim')
+  set ttymouse=xterm2
+  set ttyscroll=3
+endif
 
-" Use default vinegar browsing instead of NERDTree
-let NERDTreeHijackNetrw = 0
-let g:NERDTreeWinSize = 45
+set laststatus=2
+set encoding=utf-8              " Set default encoding to UTF-8
+set autoread                    " Automatically reread changed files without asking me anything
+set autoindent                  " Set auto indention on a new line based on previous line indent
+set smartindent                 " Set smart indention
+set backspace=indent,eol,start  " Makes backspace key more powerful.
+set incsearch                   " Shows the match while typing
+set hlsearch                    " Highlight found searches
+set mouse=a                     "Enable mouse mode
+set expandtab tabstop=2 shiftwidth=2 " Use 2 spaces instead of default 4 spaces tab
+set noerrorbells             " No beeps
+set number                   " Show line numbers
+set showcmd                  " Show me what I'm typing
+set noswapfile               " Don't use swapfile
+set nobackup                 " Don't create annoying backup files
+set splitright               " Split vertical windows right to the current windows
+set splitbelow               " Split horizontal windows below to the current windows
+set autowrite                " Automatically save before :next, :make etc.
+set hidden
+set fileformats=unix,dos,mac " Prefer Unix over Windows over OS 9 formats
+set noshowmatch              " Do not show matching brackets by flickering
+set noshowmode               " We show the mode with airline or lightline
+set ignorecase               " Search case insensitive...
+set smartcase                " ... but not it begins with upper case
+set completeopt=menu,menuone
+set nocursorcolumn           " speed up syntax highlighting
+set nocursorline
+set updatetime=300
+set pumheight=10             " Completion window max size
+set conceallevel=2           " Concealed text is completely hidden
+"set relativenumber           " Relative line numbers
+set shortmess+=c             " Shut off completion messages
+set belloff+=ctrlg           " If Vim beeps during completion
+set wildmenu                 " Show menu when using tab completion for vim command
+set lazyredraw
+set signcolumn=yes           " Always display the sign column
 
-" Use indent line
-"let g:indentLine_enabled = 1
-"let g:indentLine_char = '.'
-"let g:indentLine_setColors = 0
+"http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
+set clipboard^=unnamed
+set clipboard^=unnamedplus
 
-"""""""""
-"Visuals"
-"""""""""
+" increase max memory to show syntax highlighting for large files
+set maxmempattern=20000
 
-" Default color scheme.
-colorscheme one
-set background=dark " for the dark version
+" ~/.viminfo needs to be writable and readable. Set oldfiles to 1000 last
+" recently opened files, :FzfHistory uses it
+set viminfo='1000
 
+" color
+
+"For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+"Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+" < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+if exists('+termguicolors')
+  set t_8b=[48;2;%lu;%lu;%lum
+  set t_8f=[38;2;%lu;%lu;%lum
+  set termguicolors
+endif
+
+syntax on
 set t_Co=256
-set guifont=Menlo\ for\ Powerline:h16
-set linespace=5
+set background=dark
+colorscheme onedark
 
-" Enable line number.
-set number
+" Lightline
+let g:lightline = {
+  \ 'colorscheme': 'onedark',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'gitbranch#name'
+  \ },
+  \ }
 
-" Show where you are.
-set ruler
-
-"""""""""""
-"Searching"
-"""""""""""
-
-set hlsearch
-set incsearch
-
-
-"""""""
-"CtrlP"
-"""""""
-
+" CtrlP
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-let g:ctrlp_match_window = 'top,order:ttb,min:1,max:10,results:10'
+let g:ctrlp_match_window = 'down,order:ttb,min:1,max:20,results:15'
+let g:ctrlp_show_hidden = 1
 
+" IndentLine
+let g:indentLine_char = '│'
+let g:indentLine_color_gui = '#4A5264'
 
-"""""""""
-"Airline"
-"""""""""
+" ALE
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\}
+let g:ale_fix_on_save = 1 " Set this variable to 1 to fix files when saving
+let g:ale_open_list = 0
+" Only run linters named in ale_linters settings.
+let g:ale_linters_explicit = 1
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+highlight ALEErrorSign ctermbg=NONE ctermfg=red
+highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+" vim-json
+let g:vim_json_syntax_conceal = 0
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mappings for moving lines and preserving indentation
+" http://vim.wikia.com/wiki/Moving_lines_up_or_down
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+imap jj <Esc>
 
-""""""""""""""""""
-"Split management"
-""""""""""""""""""
+set updatetime=50        " Reduce delay to display git gutter sign
 
-set splitbelow
-set splitright
-
-nmap <C-j> <C-W><C-J>
-nmap <C-k> <C-W><C-K>
-nmap <C-h> <C-W><C-H>
-nmap <C-l> <C-W><C-L>
-
-""""""""""
-"Mappings"
-""""""""""
-
-" Make it easy to edit the Vimrc file.
-nmap <Leader>ev :e $MYVIMRC<cr>
-
-" Make it easy to edit the Gvimrc file.
-nmap <Leader>eg :e ~/.gvimrc<cr>
-
-" Make it easy to edit the Plugin file.
-nmap <Leader>ep :e ~/.vim/plugins.vim<cr>
-
-" Add simple highlight removal.
-nmap <Leader><space> :nohlsearch<cr>
-
-" Make NERDTree easier to toggle.
-nmap <D-&> :NERDTreeToggle<cr>
-
-" Browse files easily with CtrlP.
-nmap <D-p> :CtrlP<cr>
-
-nmap <C-r> :CtrlPBufTag<cr>
-
-nmap <D-w> :bd<cr>
-
-
-"""""""""""""""
-"Auto-Commands"
-"""""""""""""""
-
-" Automatically source the Vimrc file on save.
-augroup autosourcing
-  autocmd!
-  autocmd BufWritePost .vimrc source %
-augroup END
+" FZF {{{
+let g:fzf_layout = { 'down': '~30%' }
+" <C-p> or <C-t> to search files
+nnoremap <silent> <C-t> :FZF -m<cr>
+nnoremap <silent> <C-p> :FZF -m<cr>
