@@ -34,3 +34,5 @@ export GOPATH=$HOME/Go
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /Users/kevinrambaud/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/kevinrambaud/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
