@@ -6,14 +6,11 @@ call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'pangloss/vim-javascript'
-"Plug 'mxw/vim-jsx'
+Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'w0rp/ale'
-Plug 'elzr/vim-json'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-sensible'
 Plug 'joshdick/onedark.vim'
 Plug 'ryanoasis/vim-devicons'
@@ -23,6 +20,8 @@ Plug 'maximbaz/lightline-ale'
 Plug 'itchyny/vim-gitbranch'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'editorconfig/editorconfig-vim'
 
 " Initialize plugin system
 call plug#end()
@@ -87,7 +86,6 @@ set maxmempattern=20000
 set viminfo='1000
 
 " color
-
 "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
 "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
 " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
@@ -114,11 +112,6 @@ let g:lightline = {
   \ },
   \ }
 
-" CtrlP
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-let g:ctrlp_match_window = 'down,order:ttb,min:1,max:20,results:15'
-let g:ctrlp_show_hidden = 1
-
 " IndentLine
 let g:indentLine_char = '│'
 let g:indentLine_color_gui = '#4A5264'
@@ -135,17 +128,15 @@ let g:ale_fix_on_save = 1 " Set this variable to 1 to fix files when saving
 let g:ale_open_list = 0
 " Only run linters named in ale_linters settings.
 let g:ale_linters_explicit = 1
-
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+
 " vim-json
 let g:vim_json_syntax_conceal = 0
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings for moving lines and preserving indentation
-" http://vim.wikia.com/wiki/Moving_lines_up_or_down
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
 vnoremap <C-j> :m '>+1<CR>gv=gv
@@ -176,6 +167,13 @@ map sj <c-w>j
 map sk <c-w>k
 map sl <c-w>l
 
+" NERDTree
+map <c-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeShowHidden= 1
+let g:NERDTreeWinSize=50
 
 " FZF {{{
 let g:fzf_layout = { 'down': '~30%' }
@@ -192,4 +190,3 @@ augroup autosourcing
   autocmd!
   autocmd BufWritePost .vimrc source %
 augroup END
-
