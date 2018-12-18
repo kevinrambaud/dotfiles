@@ -1,7 +1,11 @@
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
+if !has('nvim')
+  call plug#begin('~/.vim/plugged')
+else
+  call plug#begin('~/.local/share/nvim/plugged')
+endif
 
 " Make sure you use single quotes
 
@@ -182,7 +186,7 @@ nnoremap <silent> <C-t> :FZF -m<cr>
 nnoremap <silent> <C-p> :FZF -m<cr>
 
 " Emmet
-let user_emmet_expandabbr_key = '<Tab>'
+"let user_emmet_expandabbr_key = '<Tab>'
 let g:user_emmet_settings = {
   \  'javascript.jsx' : {
     \      'extends' : 'jsx',

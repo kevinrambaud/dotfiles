@@ -12,6 +12,7 @@
   },
   {
     "link": {
+      "~/.config/nvim/init.vim": "vim/vimrc",
       "~/.dotfiles": "",
       "~/.gitconfig": "git/gitconfig",
       "~/.gitconfig_work": "git/gitconfig_work",
@@ -19,9 +20,7 @@
       "~/.aliases": "system/aliases",
       "~/.functions": "system/functions",
       "~/.vimrc": "vim/vimrc",
-      "~/.gvimrc": "vim/gvimrc",
       "~/.tmux.conf": "tmux.conf",
-      "~/.vim": "vim/vim",
       "~/.zshrc": "zsh/zshrc"
     }
   }
