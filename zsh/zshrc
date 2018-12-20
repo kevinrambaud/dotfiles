@@ -35,4 +35,10 @@ export GOPATH=$HOME/Go
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /Users/kevinrambaud/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/kevinrambaud/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Setting fd as the default source for fzf
+export FZF_DEFAULT_COMMAND='fd --exclude .git --hidden --type f'
+
+# To apply the command to CTRL-T as well
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+ [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

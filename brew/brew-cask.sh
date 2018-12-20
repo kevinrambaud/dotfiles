@@ -9,12 +9,10 @@ apps=(
   alfred
   bartender
   cleanmymac
-  dash
   datagrip
   discord
   focus
   google-chrome
-  iterm2
   java8
   postman
   qlcolorcode

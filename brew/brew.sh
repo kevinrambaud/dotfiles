@@ -17,6 +17,7 @@ apps=(
   coreutils
   docker
   docker-machine
+  fd
   findutils
   freetype
   gdbm
@@ -36,7 +37,6 @@ apps=(
   libxml2
   libyaml
   lua
-  macvim
   maven
   mcrypt
   mercurial
