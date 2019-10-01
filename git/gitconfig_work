@@ -2,4 +2,4 @@
   email = kevin.rambaud@cimpress.com
 
 [core]
-  sshCommand = "ssh -o IdentitiesOnly=yes -i ~/.ssh/cimpress/id_rsa -F /dev/null"
+  sshCommand = "ssh -o IdentitiesOnly=yes -o UseKeychain=yes -i ~/.ssh/cimpress/id_rsa -F /dev/null"
