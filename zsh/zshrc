@@ -2,15 +2,23 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Theme
-ZSH_THEME="robbyrussell"
+ZSH_THEME="spaceship"
 
 # Plugins
-plugins=()
+plugins=(
+  zsh-autosuggestions
+)
+
+# Autosuggestion keymap
+bindkey '^ ' autosuggest-accept
 
 source $ZSH/oh-my-zsh.sh
 
 # Editor
-export EDITOR=subl
+export EDITOR=nvim
+
+# Enable true color support for terminals
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 # Custom aliases
 source ~/.aliases
@@ -23,17 +31,10 @@ export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
 # Path
-export PATH="$PATH:/usr/local/sbin:$GOPATH/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:/Users/kevinrambaud/Library/Python/2.7/bin"
+export PATH="$PATH:/usr/local/sbin:$GOPATH/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:$HOME/Library/Python/2.7/bin:$HOME/flutter/bin"
 
 # Go path
-export GOPATH=$HOME/Go
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/kevinrambaud/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/kevinrambaud/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/kevinrambaud/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/kevinrambaud/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+export GOPATH=$HOME/go
 
 # Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND='fd --exclude .git --hidden --type f'
