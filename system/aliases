@@ -56,3 +56,5 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias hosts="sudo $EDITOR /etc/hosts"
 
 alias brupdate="brew update && brew upgrade && brew cleanup"
+
+alias vim="nvim"
