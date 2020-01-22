@@ -1,205 +1,224 @@
-" Specify a directory for plugins
-" - For Neovim: ~/.local/share/nvim/plugged
-" - Avoid using standard Vim directory names like 'plugin'
-if !has('nvim')
-  call plug#begin('~/.vim/plugged')
-else
-  call plug#begin('~/.local/share/nvim/plugged')
-endif
+call plug#begin()
 
-" Make sure you use single quotes
-
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'sheerun/vim-polyglot'
-Plug 'jiangmiao/auto-pairs'
-Plug 'itchyny/lightline.vim'
-Plug 'Yggdroot/indentLine'
-Plug 'w0rp/ale'
-Plug 'tpope/vim-sensible'
+" Color scheme
 Plug 'joshdick/onedark.vim'
-Plug 'ryanoasis/vim-devicons'
-Plug 'mattn/emmet-vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'maximbaz/lightline-ale'
-Plug 'itchyny/vim-gitbranch'
+
+Plug 'SirVer/ultisnips'
+
+" Fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree'
+
+" Use the sign column to indicate changes in a file managed by a VCS
+Plug 'mhinz/vim-signify'
+
+" Git wrapper with tons of commands
+Plug 'tpope/vim-fugitive'
+
+" Insert or delete brackets, parentheses or quotes in pair
+Plug 'jiangmiao/auto-pairs'
+
+" Make it easy to add, change or remove brackets, parentheses and more
+Plug 'tpope/vim-surround'
+
+" Comment and uncomment single line or selected block of code
+Plug 'tpope/vim-commentary'
+
+" Allow plugins map to be repeated with dot
+Plug 'tpope/vim-repeat'
+
+" Jump to any location specified by two characters
+Plug 'justinmk/vim-sneak'
+
+" Distraction free mode
+Plug 'junegunn/goyo.vim'
+
+" Set spaces, tabs and other settings per project
 Plug 'editorconfig/editorconfig-vim'
 
-" Initialize plugin system
+" Highlight and remove extra whitespaces
+Plug 'ntpeters/vim-better-whitespace'
+
+" Make scrolling nice and smooth
+Plug 'psliwka/vim-smoothie'
+
+" Syntax color
+Plug 'sheerun/vim-polyglot'
+
+" Provide support for expanding abbreviations from emmet
+Plug 'mattn/emmet-vim'
+
+" Auto close tags
+Plug 'alvan/vim-closetag'
+
+" Light and configurable statusline and tabline
+Plug 'itchyny/lightline.vim'
+
+" Display indentation for spaces
+Plug 'Yggdroot/indentLine'
+
+" Display color for in css or html files
+"Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+
+" Highlight current word
+"Plug 'dominikduda/vim_current_word'
+
+" Flutter
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
+
 call plug#end()
 
-set nocompatible
-filetype off
-filetype plugin indent on
-
-set ttyfast
-
-if !has('nvim')
-  set ttymouse=xterm2
-  set ttyscroll=3
-endif
-
-set laststatus=2
-set encoding=utf-8              " Set default encoding to UTF-8
-set autoread                    " Automatically reread changed files without asking me anything
-set autoindent                  " Set auto indention on a new line based on previous line indent
-set smartindent                 " Set smart indention
-set backspace=indent,eol,start  " Makes backspace key more powerful.
-set incsearch                   " Shows the match while typing
-set hlsearch                    " Highlight found searches
-set mouse=a                     "Enable mouse mode
-set expandtab tabstop=2 shiftwidth=2 " Use 2 spaces instead of default 4 spaces tab
-set noerrorbells             " No beeps
-set number                   " Show line numbers
-set showcmd                  " Show me what I'm typing
-set noswapfile               " Don't use swapfile
-set nobackup                 " Don't create annoying backup files
-set splitright               " Split vertical windows right to the current windows
-set splitbelow               " Split horizontal windows below to the current windows
-set autowrite                " Automatically save before :next, :make etc.
-set hidden
-set fileformats=unix,dos,mac " Prefer Unix over Windows over OS 9 formats
-set noshowmatch              " Do not show matching brackets by flickering
-set noshowmode               " We show the mode with airline or lightline
-set ignorecase               " Search case insensitive...
-set smartcase                " ... but not it begins with upper case
-set completeopt=menu,menuone
-set nocursorcolumn           " speed up syntax highlighting
-set nocursorline
-set updatetime=50            " Reduce delay to display git gutter sign
-set pumheight=10             " Completion window max size
-set conceallevel=2           " Concealed text is completely hidden
-"set relativenumber           " Relative line numbers
-set shortmess+=c             " Shut off completion messages
-set belloff+=ctrlg           " If Vim beeps during completion
-set wildmenu                 " Show menu when using tab completion for vim command
-set lazyredraw
-set signcolumn=yes           " Always display the sign column
-
-"http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
-set clipboard^=unnamed
-set clipboard^=unnamedplus
-
-" increase max memory to show syntax highlighting for large files
-set maxmempattern=20000
-
-" ~/.viminfo needs to be writable and readable. Set oldfiles to 1000 last
-" recently opened files, :FzfHistory uses it
-set viminfo='1000
-
-" color
-"For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-"Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-" < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-if exists('+termguicolors')
-  set t_8b=[48;2;%lu;%lu;%lum
-  set t_8f=[38;2;%lu;%lu;%lum
-  set termguicolors
-endif
-
 syntax on
-set t_Co=256
-set background=dark
 colorscheme onedark
 
-" Lightline
-let g:lightline = {
-  \ 'colorscheme': 'onedark',
-  \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-  \ },
-  \ 'component_function': {
-  \   'gitbranch': 'gitbranch#name'
-  \ },
-  \ }
+set autowrite
+set number
+set splitright
+set termguicolors
+set clipboard=unnamed
+set backspace=indent,eol,start
 
-" IndentLine
-let g:indentLine_char = '│'
-let g:indentLine_color_gui = '#4A5264'
+" if hidden is not set, TextEdit might fail.
+set hidden
 
-" ALE
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\}
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint'],
-\}
-let g:ale_fix_on_save = 1 " Set this variable to 1 to fix files when saving
-let g:ale_open_list = 0
-" Only run linters named in ale_linters settings.
-let g:ale_linters_explicit = 1
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '⚠'
-highlight ALEErrorSign ctermbg=NONE ctermfg=red
-highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
 
-" vim-json
-let g:vim_json_syntax_conceal = 0
+" Better display for messages
+set cmdheight=1
 
-" Mappings for moving lines and preserving indentation
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
-imap jk <Esc>
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=100
 
-" Disable Arrow keys in Normal mode
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
 
-" Disable Arrow keys in Insert mode
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
+" always show signcolumns
+set signcolumn=yes
 
-" Split window
-nmap ss :new<cr>
-nmap sv :vnew<cr>
-nmap sq <c-w>q
+" Smoother scrolling when moving horizontally
+set sidescroll=1
 
-" Move window
-nmap <space> <c-w>w
-map sh <c-w>h
-map sj <c-w>j
-map sk <c-w>k
-map sl <c-w>l
+" Show “invisible” characters
+set lcs=tab:▏\ ,trail:·,nbsp:_
+set list
 
-" NERDTree
-map <c-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeDirArrows = 1
-let g:NERDTreeShowHidden= 1
-let g:NERDTreeWinSize=50
+set softtabstop=2
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
-" FZF {{{
-let g:fzf_layout = { 'down': '~30%' }
-" <C-p> or <C-t> to search files
-nnoremap <silent> <C-t> :FZF -m<cr>
+" Set leader shortcut to a comma ','. By default it's the backslash
+let mapleader = " "
+
+" Custom key mappings
+imap jj <ESC>
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
+" Move lines keymap
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
+" FZF settings
+let $FZF_DEFAULT_OPTS=' --color=dark --color=fg:15,bg:-1,hl:1,fg+:#ffffff,bg+:0,hl+:1 --color=info:0,prompt:0,pointer:12,marker:4,spinner:11,header:-1 --layout=reverse  --margin=1,4'
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
+function! FloatingFZF()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+
+  let height = float2nr(10)
+  let width = float2nr(80)
+  let horizontal = float2nr((&columns - width) / 2)
+  let vertical = 1
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': vertical,
+        \ 'col': horizontal,
+        \ 'width': width,
+        \ 'height': height,
+        \ 'style': 'minimal'
+        \ }
+
+  call nvim_open_win(buf, v:true, opts)
+endfunction
+
 nnoremap <silent> <C-p> :FZF -m<cr>
 
-" Emmet
-let g:user_emmet_leader_key=','
-let g:user_emmet_settings = {
-\  'javascript.jsx' : {
-\      'extends' : 'jsx',
-\      'quote_char': "'",
-\  },
-\}
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
-"""""""""""""""
-"Auto-Commands"
-"""""""""""""""
+" Signify settings
+let g:signify_sign_add = '▎'
+let g:signify_sign_delete = '▶'
+let g:signify_sign_delete_first_line = '▶'
+let g:signify_sign_change = '▎'
+let g:signify_sign_show_count = 0
 
-" Automatically source the Vimrc file on save.
-augroup autosourcing
+highlight SignifySignAdd    		ctermfg=green  guifg=#587C0C cterm=NONE gui=NONE
+highlight SignifySignChange 		ctermfg=blue   guifg=#0C7D9D cterm=NONE gui=NONE
+highlight SignifySignDelete 		ctermfg=red    guifg=#94151B cterm=NONE gui=NONE
+highlight SignifySignDeleteFirstLine 	ctermfg=red    guifg=#94151B cterm=NONE gui=NONE
+
+" Netrw settings
+let g:vim_markdown_folding_disabled = 1
+let g:netrw_banner = 0
+
+" Lightline settngs
+let g:lightline = {
+      \ 'colorscheme': 'onedark',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+
+" Resize splits when vim changes size (like with tmux opening/closing)
+augroup auto-resize
   autocmd!
-  autocmd BufWritePost .vimrc source %
+  autocmd VimResized * wincmd =
 augroup END
+
+let g:indentLine_enabled = 1
+let g:indentLine_showFirstIndentLevel = 1
+let g:indentLine_color_gui = '#3C4049'
+let g:indentLine_char = '·'
+let g:indentLine_first_char = '·'
+"let g:indentLine_first_char = '▏'
+
+
+" Polyglot settings
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+
+" Hexokinase settings
+let g:Hexokinase_highlighters = [ 'virtual' ]
+let g:Hexokinase_refreshEvents = [ 'BufRead', 'TextChangedI' ]
+
+" Disable current word highlighting for specified files
+autocmd BufAdd FZF* :let b:vim_current_word_disabled_in_this_buffer = 1
+
+" Change cursor color
+hi Cursor guifg=#528BFF guibg=#528BFF
+hi Cursor2 guifg=#528BFF guibg=#528BFF
+set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor50
+
+" Flutter settings
+let g:flutter_show_log_on_run = 1

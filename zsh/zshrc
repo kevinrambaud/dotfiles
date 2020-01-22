@@ -10,7 +10,7 @@ plugins=()
 source $ZSH/oh-my-zsh.sh
 
 # Editor
-export EDITOR=subl
+export EDITOR=nvim
 
 # Custom aliases
 source ~/.aliases
@@ -18,27 +18,26 @@ source ~/.aliases
 # Custom functions
 source ~/.functions
 
+# zsh autosuggestions
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+bindkey '^ ' autosuggest-accept
+
+
 # nvm
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+# export NVM_DIR="$HOME/.nvm"
+# . "/usr/local/opt/nvm/nvm.sh"
+
 
 # Path
-export PATH="$PATH:/usr/local/sbin:$GOPATH/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:/Users/kevinrambaud/Library/Python/2.7/bin"
+export PATH="/usr/local/opt/node@12/bin:$PATH:/usr/local/sbin:$GOPATH/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:/Users/kevinrambaud/Library/Python/2.7/bin:/Users/kevinrambaud/Dev/flutter/bin"
 
 # Go path
-export GOPATH=$HOME/Go
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/kevinrambaud/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/kevinrambaud/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/kevinrambaud/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/kevinrambaud/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-
-# Setting fd as the default source for fzf
+export GOPATH=$HOME/go
+export GO111MODULE=auto
 export FZF_DEFAULT_COMMAND='fd --exclude .git --hidden --type f'
 
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
