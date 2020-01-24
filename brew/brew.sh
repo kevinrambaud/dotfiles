@@ -68,6 +68,7 @@ apps=(
   wget
   yarn
   zsh
+  zsh-autosuggestions
   zsh-completions
 )
 
