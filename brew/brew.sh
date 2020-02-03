@@ -12,6 +12,7 @@ brew tap homebrew/homebrew-php
 # Install packages
 apps=(
   autoconf
+  bat
   bazaar
   composer
   coreutils
