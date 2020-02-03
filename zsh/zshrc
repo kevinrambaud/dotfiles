@@ -2,12 +2,10 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Theme
-ZSH_THEME="spaceship"
+ZSH_THEME="robbyrussell"
 
 # Plugins
-plugins=(
-  zsh-autosuggestions
-)
+plugins=()
 
 # Autosuggestion keymap
 bindkey '^ ' autosuggest-accept
@@ -27,14 +25,11 @@ source ~/.functions
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^ ' autosuggest-accept
 
-
-# nvm
-# export NVM_DIR="$HOME/.nvm"
-# . "/usr/local/opt/nvm/nvm.sh"
-
+# Fast node version manager
+eval "`fnm env --multi`"
 
 # Path
-export PATH="/usr/local/opt/node@12/bin:$PATH:/usr/local/sbin:$GOPATH/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:/Users/kevinrambaud/Library/Python/2.7/bin:/Users/kevinrambaud/Dev/flutter/bin"
+export PATH="$PATH:/usr/local/sbin:$GOPATH/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:/Users/kevinrambaud/Library/Python/2.7/bin:/Users/kevinrambaud/Dev/flutter/bin"
 
 # Go path
 export GOPATH=$HOME/go
