@@ -127,36 +127,14 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-" FZF settings
-let $FZF_DEFAULT_OPTS=' --color=dark --color=fg:15,bg:-1,hl:1,fg+:#ffffff,bg+:0,hl+:1 --color=info:0,prompt:0,pointer:12,marker:4,spinner:11,header:-1 --layout=reverse  --margin=1,4'
-let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-
-function! FloatingFZF()
-  let buf = nvim_create_buf(v:false, v:true)
-  call setbufvar(buf, '&signcolumn', 'no')
-
-  let height = float2nr(10)
-  let width = float2nr(80)
-  let horizontal = float2nr((&columns - width) / 2)
-  let vertical = 1
-
-  let opts = {
-        \ 'relative': 'editor',
-        \ 'row': vertical,
-        \ 'col': horizontal,
-        \ 'width': width,
-        \ 'height': height,
-        \ 'style': 'minimal'
-        \ }
-
-  call nvim_open_win(buf, v:true, opts)
-endfunction
-
 nnoremap <silent> <C-p> :FZF -m<cr>
 
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+" Disable current word highlighting for specified files
+autocmd BufAdd FZF* :let b:vim_current_word_disabled_in_this_buffer = 1
 
 " Signify settings
 let g:signify_sign_add = '▎'
@@ -197,8 +175,6 @@ let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_color_gui = '#3C4049'
 let g:indentLine_char = '·'
 let g:indentLine_first_char = '·'
-"let g:indentLine_first_char = '▏'
-
 
 " Polyglot settings
 let g:go_highlight_types = 1
@@ -207,13 +183,6 @@ let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
-
-" Hexokinase settings
-let g:Hexokinase_highlighters = [ 'virtual' ]
-let g:Hexokinase_refreshEvents = [ 'BufRead', 'TextChangedI' ]
-
-" Disable current word highlighting for specified files
-autocmd BufAdd FZF* :let b:vim_current_word_disabled_in_this_buffer = 1
 
 " Change cursor color
 hi Cursor guifg=#528BFF guibg=#528BFF
