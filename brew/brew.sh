@@ -8,10 +8,12 @@ brew upgrade
 # Add tap
 brew tap homebrew/versions
 brew tap homebrew/homebrew-php
+brew tap aws/tap
 
 # Install packages
 apps=(
   autoconf
+  aws-sam-cli
   bat
   bazaar
   composer
@@ -58,6 +60,7 @@ apps=(
   python3
   rbenv
   readline
+  ripgrep
   ruby
   ruby-build
   sqlite
