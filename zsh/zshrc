@@ -43,3 +43,6 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
+eval "$(rbenv init -)"
+
