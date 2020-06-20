@@ -57,4 +57,4 @@ alias hosts="sudo $EDITOR /etc/hosts"
 
 alias brupdate="brew update && brew upgrade && brew cleanup"
 
-alias vim="nvim"
+alias vimrc="nvim ~/.vimrc"
