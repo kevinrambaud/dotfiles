@@ -1,67 +1,34 @@
 call plug#begin()
 
-" Color scheme
-Plug 'joshdick/onedark.vim'
-
-" Snippet
-Plug 'SirVer/ultisnips'
-
-" Fuzzy finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'chriskempson/base16-vim' " Color scheme
+Plug 'honza/vim-snippets' " Snippets
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
 Plug 'junegunn/fzf.vim'
-
-" Use the sign column to indicate changes in a file managed by a VCS
-Plug 'mhinz/vim-signify'
-
-" Git wrapper with tons of commands
-Plug 'tpope/vim-fugitive'
-
-" Insert or delete brackets, parentheses or quotes in pair
-Plug 'jiangmiao/auto-pairs'
-
-" Make it easy to add, change or remove brackets, parentheses and more
-Plug 'tpope/vim-surround'
-
-" Comment and uncomment single line or selected block of code
-Plug 'tpope/vim-commentary'
-
-" Allow plugins map to be repeated with dot
-Plug 'tpope/vim-repeat'
-
-" Distraction free mode
-Plug 'junegunn/goyo.vim'
-
-" Set spaces, tabs and other settings per project
-Plug 'editorconfig/editorconfig-vim'
-
-" Highlight and remove extra whitespaces
-Plug 'ntpeters/vim-better-whitespace'
-
-" Syntax color
-Plug 'sheerun/vim-polyglot'
-
-" Provide support for expanding abbreviations from emmet
-Plug 'mattn/emmet-vim'
-
-" Auto close tags
-Plug 'alvan/vim-closetag'
-
-" Light and configurable statusline and tabline
-Plug 'itchyny/lightline.vim'
-
-" Display indentation for spaces
-Plug 'Yggdroot/indentLine'
+Plug 'mhinz/vim-signify' " Git sign in column
+Plug 'tpope/vim-fugitive' " Git wrapper with tons of commands
+Plug 'tpope/vim-vinegar' " Netrw enhanced
+Plug 'jiangmiao/auto-pairs' " Insert or delete brackets, parentheses or quotes in pair
+Plug 'tpope/vim-surround' " Make it easy to add, change or remove brackets, parentheses and more
+Plug 'tpope/vim-commentary' " Comment and uncomment single line or selected block of code
+Plug 'tpope/vim-repeat' " Allow plugins map to be repeated with dot
+Plug 'junegunn/goyo.vim' " Distraction free mode
+Plug 'editorconfig/editorconfig-vim' " Set spaces, tabs and other settings per project
+Plug 'ntpeters/vim-better-whitespace' " Highlight and remove extra whitespaces
+Plug 'sheerun/vim-polyglot' " Syntax color
+Plug 'kevinrambaud/emmet-vim' " Provide support for expanding abbreviations from emmet
 
 call plug#end()
 
+" Color scheme settings
 syntax on
-colorscheme onedark
+set background=dark
+set termguicolors
+colorscheme base16-tomorrow-night
 
 set autowrite
 set number
 set splitright
-set termguicolors
-set clipboard=unnamed
+set clipboard^=unnamedplus
 set backspace=indent,eol,start
 
 " if hidden is not set, TextEdit might fail.
@@ -86,31 +53,37 @@ set signcolumn=yes
 " Smoother scrolling when moving horizontally
 set sidescroll=1
 
-" Show “invisible” characters
-set lcs=tab:▏\ ,trail:·,nbsp:_
-set list
-
 set softtabstop=2
 set tabstop=2
 set shiftwidth=2
 set expandtab
+" set relativenumber
+set showmatch
+set ignorecase
+set smartindent
 
 " Set leader shortcut to a comma ','. By default it's the backslash
 let mapleader = " "
+
+" Disable autocommenting on newline: https://stackoverflow.com/questions/6076592/vim-set-formatoptions-being-lost
+"au BufNewFile,BufWinEnter * setlocal formatoptions-=cro
 
 " Custom key mappings
 imap jj <ESC>
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
+map <leader>f :Rg<CR>
+map <leader>e :Ex<CR>
+tnoremap <Esc> <C-\><C-n>
 
 " Move lines keymap
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
+nnoremap <M-j> :m .+1<CR>==
+nnoremap <M-k> :m .-2<CR>==
+inoremap <M-j> <Esc>:m .+1<CR>==gi
+inoremap <M-k> <Esc>:m .-2<CR>==gi
+vnoremap <M-j> :m '>+1<CR>gv=gv
+vnoremap <M-k> :m '<-2<CR>gv=gv
 
 nnoremap <silent> <C-p> :FZF -m<cr>
 
@@ -118,47 +91,17 @@ autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.5, 'highlight': 'Todo', 'rounded': v:true } }
-
-" Signify settings
-let g:signify_sign_add = '▎'
-let g:signify_sign_delete = '▶'
-let g:signify_sign_delete_first_line = '▶'
-let g:signify_sign_change = '▎'
-let g:signify_sign_show_count = 0
-
-highlight SignifySignAdd    		ctermfg=green  guifg=#587C0C cterm=NONE gui=NONE
-highlight SignifySignChange 		ctermfg=blue   guifg=#0C7D9D cterm=NONE gui=NONE
-highlight SignifySignDelete 		ctermfg=red    guifg=#94151B cterm=NONE gui=NONE
-highlight SignifySignDeleteFirstLine 	ctermfg=red    guifg=#94151B cterm=NONE gui=NONE
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.5, 'highlight': 'Todo', 'rounded': v:false } }
 
 " Netrw settings
 let g:vim_markdown_folding_disabled = 1
 let g:netrw_banner = 0
-
-" Lightline settngs
-let g:lightline = {
-      \ 'colorscheme': 'one',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
 
 " Resize splits when vim changes size (like with tmux opening/closing)
 augroup auto-resize
   autocmd!
   autocmd VimResized * wincmd =
 augroup END
-
-let g:indentLine_enabled = 1
-let g:indentLine_showFirstIndentLevel = 1
-let g:indentLine_color_gui = '#3C4049'
-let g:indentLine_char = '·'
-let g:indentLine_first_char = '·'
 
 " Polyglot settings
 let g:go_highlight_types = 1
@@ -168,11 +111,20 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 
-" Change cursor color
-hi Cursor guifg=#528BFF guibg=#528BFF
-hi Cursor2 guifg=#528BFF guibg=#528BFF
-set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor50
+" UltiSnips settings
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-" Flutter settings
-let g:flutter_show_log_on_run = 1
+" Signify
+let g:signify_sign_add    = '┃'
+let g:signify_sign_change = '┃'
+let g:signify_sign_delete = '▶'
+let g:signify_sign_delete_first_line = '▶'
+let g:signify_sign_show_count = 0 " Don’t show the number of deleted lines.
+
+" Better whitespace settings
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+let g:strip_whitespace_confirm=0
 
