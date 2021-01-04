@@ -20,12 +20,13 @@ source ~/.functions
 
 # zsh autosuggestions
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+bindkey -v
 bindkey '^ ' autosuggest-accept
 bindkey "^n" down-line-or-search
 bindkey "^p" up-line-or-search
 
 # Fast node version manager
-eval "`fnm env --multi`"
+eval "`fnm env`"
 
 # Path
 export PATH="$PATH:/usr/local/sbin:$GOPATH/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:/Users/kevinrambaud/Library/Python/2.7/bin:/Users/kevinrambaud/Dev/flutter/bin"
@@ -42,4 +43,6 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
 eval "$(rbenv init -)"
+
+export PATH=$PATH:/Users/kevinrambaud/.nexustools
 

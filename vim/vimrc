@@ -11,7 +11,6 @@ Plug 'jiangmiao/auto-pairs' " Insert or delete brackets, parentheses or quotes i
 Plug 'tpope/vim-surround' " Make it easy to add, change or remove brackets, parentheses and more
 Plug 'tpope/vim-commentary' " Comment and uncomment single line or selected block of code
 Plug 'tpope/vim-repeat' " Allow plugins map to be repeated with dot
-Plug 'junegunn/goyo.vim' " Distraction free mode
 Plug 'editorconfig/editorconfig-vim' " Set spaces, tabs and other settings per project
 Plug 'ntpeters/vim-better-whitespace' " Highlight and remove extra whitespaces
 Plug 'sheerun/vim-polyglot' " Syntax color
@@ -63,7 +62,7 @@ set ignorecase
 set smartindent
 
 " Set leader shortcut to a comma ','. By default it's the backslash
-let mapleader = " "
+let mapleader = ""
 
 " Disable autocommenting on newline: https://stackoverflow.com/questions/6076592/vim-set-formatoptions-being-lost
 "au BufNewFile,BufWinEnter * setlocal formatoptions-=cro

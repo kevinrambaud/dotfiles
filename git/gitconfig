@@ -3,7 +3,10 @@
 	email = kevin.rambaud@gmail.com
 
 [includeIf "gitdir:~/Dev/cimpress/"]
-  path = ~/.gitconfig_work
+  path = ~/.gitconfig_cimpress
+
+[includeIf "gitdir:~/Dev/agilitation/"]
+  path = ~/.gitconfig_agilitation
 
 [github]
   user = kevinrambaud

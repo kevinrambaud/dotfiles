@@ -1,0 +1,5 @@
+[user]
+  email = kevin@axeptio.eu
+
+[core]
+  sshCommand = "ssh -o IdentitiesOnly=yes -o UseKeychain=yes -i ~/.ssh/agilitation/id_rsa -F /dev/null"
