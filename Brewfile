@@ -1,5 +1,6 @@
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
+tap "mongodb/brew"
 
 # Formulae
 brew "asciinema"
@@ -15,6 +16,7 @@ brew "hugo"
 brew "imagemagick"
 brew "jq"
 brew "maven"
+brew "mongodb-community@4.0"
 brew "neofetch"
 brew "neovim"
 brew "pyenv"
