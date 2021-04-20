@@ -1,28 +1,35 @@
 call plug#begin()
 
-Plug 'chriskempson/base16-vim' " Color scheme
-Plug 'honza/vim-snippets' " Snippets
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify' " Git sign in column
-Plug 'tpope/vim-fugitive' " Git wrapper with tons of commands
-Plug 'tpope/vim-vinegar' " Netrw enhanced
 Plug 'jiangmiao/auto-pairs' " Insert or delete brackets, parentheses or quotes in pair
 Plug 'tpope/vim-surround' " Make it easy to add, change or remove brackets, parentheses and more
 Plug 'tpope/vim-commentary' " Comment and uncomment single line or selected block of code
 Plug 'tpope/vim-repeat' " Allow plugins map to be repeated with dot
-Plug 'editorconfig/editorconfig-vim' " Set spaces, tabs and other settings per project
-Plug 'ntpeters/vim-better-whitespace' " Highlight and remove extra whitespaces
 Plug 'sheerun/vim-polyglot' " Syntax color
-Plug 'kevinrambaud/emmet-vim' " Provide support for expanding abbreviations from emmet
+Plug 'christianchiarulli/nvcode-color-schemes.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
+" configure treesitter
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "haskell", "rust" },  -- list of language that will be disabled
+  },
+}
+EOF
+
 " Color scheme settings
+let g:nvcode_termcolors=256
 syntax on
 set background=dark
 set termguicolors
-colorscheme base16-tomorrow-night
+colorscheme dracula
 
 set autowrite
 set number
