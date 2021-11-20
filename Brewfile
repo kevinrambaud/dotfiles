@@ -20,7 +20,7 @@ brew "imagemagick"
 brew "jq"
 brew "maven"
 brew "neofetch"
-brew "neovim"
+brew "neovim", args: ["HEAD"]
 brew "pyenv"
 brew "python"
 brew "rbenv"
