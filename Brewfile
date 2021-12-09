@@ -36,6 +36,7 @@ brew "wrk"
 
 # Casks
 cask "alfred"
+cask "brave-browser"
 cask "chromium"
 cask "cleanshot"
 cask "docker"
